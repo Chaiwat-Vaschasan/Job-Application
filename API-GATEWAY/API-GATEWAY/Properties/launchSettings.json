@@ -3,7 +3,11 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:51994",
+      "applicationUrl": "http://localhost/API-GATEWAY",
+      "sslPort": 0
+    },
+    "iis": {
+      "applicationUrl": "http://localhost/API-GATEWAY",
       "sslPort": 0
     }
   },
@@ -17,7 +21,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "API_GATEWAY": {
+    "API_GATEWAY_COMMAND": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "",
@@ -25,6 +29,13 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "http://localhost:5000"
+    },
+    "API_GATEWAY": {
+      "commandName": "IIS",
+      "launchBrowser": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
     },
     "Docker": {
       "commandName": "Docker",

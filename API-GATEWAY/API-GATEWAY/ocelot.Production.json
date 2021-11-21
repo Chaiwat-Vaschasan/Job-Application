@@ -1,3 +1,19 @@
 {
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/orders",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "order-pizza-api.herokuapp.com",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/test",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+    }
 
+  ],
+  "GlobalConfiguration": {
+  }
 }

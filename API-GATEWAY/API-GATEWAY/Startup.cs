@@ -41,6 +41,8 @@ namespace API_GATEWAY
 
             app.UseRouting();
 
+            app.UseMiddleware<RequestLoggingMiddleware>();
+
             app.UseCors("CorsPolicy");
 
             app.UseEndpoints(endpoints =>
