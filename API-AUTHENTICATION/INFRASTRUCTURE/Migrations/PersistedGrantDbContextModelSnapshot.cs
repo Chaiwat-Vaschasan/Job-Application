@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace INFRASTRUCTURE.Context
 {
     [DbContext(typeof(IdentityServer4.EntityFramework.DbContexts.PersistedGrantDbContext))]
-    partial class PersistedGrantDbContext : ModelSnapshot
+    partial class PersistedGrantDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

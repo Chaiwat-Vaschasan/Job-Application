@@ -1,4 +1,7 @@
 ﻿using DOMAIN.Repository;
+using DOMAIN.Repository.IdentityServer;
+using INFRASTRUCTURE.Context;
+using INFRASTRUCTURE.Repository.IdentityServer;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,14 +11,58 @@ namespace INFRASTRUCTURE.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public void Dispose()
+        #region Inject
+        private readonly ApplicationDbContext applicationDbContext;
+        private readonly AppPersistedGrantDbContext persistedGrantDbContext;
+        private readonly AppConfigurationDbContext configurationDbContext;
+
+        
+
+        public UnitOfWork(ApplicationDbContext applicationDbContext , 
+                          AppPersistedGrantDbContext persistedGrantDbContext,
+                          AppConfigurationDbContext configurationDbContext) 
         {
-            throw new NotImplementedException();
+            this.applicationDbContext = applicationDbContext;
+            this.persistedGrantDbContext = persistedGrantDbContext;
+            this.configurationDbContext = configurationDbContext;
+        }
+        #endregion
+
+        #region Save
+        public async Task Save()
+        {
+           await applicationDbContext.SaveChangesAsync();
         }
 
-        public Task Save()
+        public async Task SaveConfiguration()
         {
-            throw new NotImplementedException();
+            await configurationDbContext.SaveChangesAsync();
+        }
+
+        public async Task SavePersistedGrant()
+        {
+            await persistedGrantDbContext.SaveChangesAsync();
+        }
+        #endregion
+
+        #region Repository
+        public IClientsRepository ClientsRepository => new ClientsRepository(configurationDbContext);
+        #endregion
+
+        public void Dispose()
+        {
+            if (applicationDbContext != null)
+            {
+                applicationDbContext.Dispose();
+            }
+            if (persistedGrantDbContext != null)
+            {
+                persistedGrantDbContext.Dispose();
+            }
+            if (configurationDbContext != null)
+            {
+                configurationDbContext.Dispose();
+            }
         }
     }
 }

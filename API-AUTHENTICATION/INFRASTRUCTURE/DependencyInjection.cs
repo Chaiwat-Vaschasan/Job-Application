@@ -1,4 +1,6 @@
-﻿using INFRASTRUCTURE.Context;
+﻿using DOMAIN.Repository;
+using INFRASTRUCTURE.Context;
+using INFRASTRUCTURE.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,10 +36,14 @@ namespace INFRASTRUCTURE
                         builder.UseNpgsql(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
                     // this enables automatic token cleanup. this is optional.
                     options.EnableTokenCleanup = true;
-                    options.TokenCleanupInterval = 30;
+                    options.TokenCleanupInterval = 1200;
                 });
 
             #endregion
+
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
+            services.AddScoped<AppPersistedGrantDbContext>();
+            services.AddScoped<AppConfigurationDbContext>();
 
             return services;
         }
