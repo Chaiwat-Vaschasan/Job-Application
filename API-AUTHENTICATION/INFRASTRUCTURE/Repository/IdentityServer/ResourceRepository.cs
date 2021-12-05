@@ -5,18 +5,18 @@ using System.Threading.Tasks;
 
 namespace INFRASTRUCTURE.Repository.IdentityServer
 {
-    public class ClientsRepository : IClientsRepository
+    public class ResourceRepository : IResourceRepository
     {
         private readonly AppConfigurationDbContext context;
 
-        public ClientsRepository(AppConfigurationDbContext context ) 
+        public ResourceRepository(AppConfigurationDbContext context)
         {
             this.context = context;
         }
 
-        public async Task Add(Client client)
+        public async Task Add(ApiResource resource)
         {
-            context.Clients.Add(client);
+            context.ApiResources.Add(resource);
             await context.SaveChangesAsync();
         }
     }

@@ -9,6 +9,8 @@ namespace DOMAIN.Repository
     public interface IUnitOfWork : IDisposable
     {
         IClientsRepository ClientsRepository { get; }
+        IResourceRepository ResourceRepository { get; }
+        IScopeRepository ScopeRepository { get; }
 
         Task Save();
         Task SaveConfiguration();

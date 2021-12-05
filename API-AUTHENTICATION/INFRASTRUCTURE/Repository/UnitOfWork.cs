@@ -2,9 +2,6 @@
 using DOMAIN.Repository.IdentityServer;
 using INFRASTRUCTURE.Context;
 using INFRASTRUCTURE.Repository.IdentityServer;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace INFRASTRUCTURE.Repository
@@ -47,6 +44,8 @@ namespace INFRASTRUCTURE.Repository
 
         #region Repository
         public IClientsRepository ClientsRepository => new ClientsRepository(configurationDbContext);
+        public IResourceRepository ResourceRepository => new ResourceRepository(configurationDbContext);
+        public IScopeRepository ScopeRepository => new ScopeRepository(configurationDbContext);
         #endregion
 
         public void Dispose()

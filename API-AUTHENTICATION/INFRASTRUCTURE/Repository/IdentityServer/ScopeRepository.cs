@@ -5,18 +5,18 @@ using System.Threading.Tasks;
 
 namespace INFRASTRUCTURE.Repository.IdentityServer
 {
-    public class ClientsRepository : IClientsRepository
+    public class ScopeRepository : IScopeRepository
     {
         private readonly AppConfigurationDbContext context;
 
-        public ClientsRepository(AppConfigurationDbContext context ) 
+        public ScopeRepository(AppConfigurationDbContext context) 
         {
             this.context = context;
         }
 
-        public async Task Add(Client client)
+        public async Task Add(ApiScope scope)
         {
-            context.Clients.Add(client);
+            context.ApiScopes.Add(scope);
             await context.SaveChangesAsync();
         }
     }

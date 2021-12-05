@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace DOMAIN.Repository.IdentityServer
 {
-    public interface IClientsRepository
+    public interface IScopeRepository
     {
-        Task Add(Client client);
+        Task Add(ApiScope scope);
     }
 }

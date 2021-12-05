@@ -6,12 +6,11 @@ using IdentityServer4.Models;
 using MediatR;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using static DOMAIN.Common.IdentityServerConstant;
 
-namespace APPLICATION.IdentitySrver.Commands
+namespace APPLICATION.IdentityServer.Commands
 {
     public class ClientCommand : IRequest<string>
     {

@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace DOMAIN.Repository.IdentityServer
 {
-    public interface IClientsRepository
+    public interface IResourceRepository
     {
-        Task Add(Client client);
+        Task Add(ApiResource resource);
     }
 }

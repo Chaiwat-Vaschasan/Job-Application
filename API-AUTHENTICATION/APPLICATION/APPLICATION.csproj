@@ -42,7 +42,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="IdentitySrver\Query\" />
+    <Folder Include="IdentityServer\Queries\" />
     <Folder Include="Menus\" />
     <Folder Include="Users\" />
   </ItemGroup>
