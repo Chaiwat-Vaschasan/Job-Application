@@ -15,5 +15,13 @@ namespace DOMAIN.Entities.Users
         public Guid UserId { get; set; }
         [Column("RoleId")]
         public int RoleId { get; set; }
+
+        public UserRole() { }
+
+        public UserRole(Guid userId, int roleId) 
+        {
+            this.UserId = userId;
+            this.RoleId = roleId;
+        }
     }
 }
